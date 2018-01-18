@@ -1,0 +1,99 @@
+<html>
+<header>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <style>
+        .container {
+            width: 100% !important;
+        }
+
+        #transaction-hash {
+            color: grey;
+            font-size: 12px;
+        }
+
+        #errors {
+            background-color: #ffd6c8;
+            color: darkred;
+        }
+
+        #accounts {
+            list-style: none;
+        }
+
+        .balance {
+            color: grey;
+            width: 70px;
+        }
+
+        .from,
+        .to {
+            color: blue !important;
+        }
+
+        #transaction-info {
+            background-color: darkgrey;
+            border: grey 1px solid;
+            margin-top: 10px;
+        }
+
+        #transaction-info p {
+            margin: -15px 2px;
+        }
+    </style>
+</header>
+
+<body>
+    <div id="app" class="container">
+        <div id="errors"></div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Accounts</h3>
+                <pre id="accounts"></pre>
+            </div>
+            <div class="col-sm-6">
+                <h3>Transaction Information</h3>
+                <pre id="transaction-info">
+          <p><b>Hash:</b> <span id="hash"></span></p>
+          <p><b>Nonce:</b> <span id="nonce"></span></p>
+          <p><b>Gas usage:</b> <span id="gas-usage"></span></p>
+          <p><b>Block Number:</b> <span id="block-number"></span></p>
+          <p><b>Block Hash:</b> <span id="block-hash"></span></p>
+          <p><b>Tx Index:</b> <span id="transaction-index"></span></p>
+          <p><b>From:</b> <span id="from"></span></p>
+          <p><b>To:</b> <span id="to"></span></p>
+          <p><b>Value:</b> <span id="value"></span></p>
+        </pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6" id="send-transaction-form">
+                <h3>Do a Transaction</h3>
+                <p id="transaction-hash">Tx Hash: </p>
+                <div class="form-group row">
+                    <label for="sender-address" class="col-sm-3 col-form-label">From (address)</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" id="sender-address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="recipient-address" class="col-sm-3 col-form-label">To (address)</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" id="recipient-address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="amount" class="col-sm-3 col-form-label">Amount (wei)</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="amount">
+                    </div>
+                </div>
+                <button id="send-ether" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+    <script type="application/javascript" src="./bundle.js"></script>
+</body>
+
+</html>
